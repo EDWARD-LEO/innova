@@ -112,5 +112,121 @@ CREATE TABLE clasificaciones
     CONSTRAINT uk_clasificacion_cla UNIQUE (clasificacion)
 )ENGINE = INNODB;
 
+INSERT INTO clasificaciones (clasificacion) VALUES
+	('Informática'),
+    ('Metalmecánica'),
+    ('Electricidad Industrial');
+
+CREATE TABLE tiposactivo
+(
+	idtipo 					INT AUTO_INCREMENT PRIMARY KEY,
+    idclasificacion 		INT  				NOT NULL,
+    tipoactivo 				VARCHAR(300) 		NOT NULL,
+	create_at 				DATETIME 			NOT NULL DEFAULT NOW(),
+    update_at 				DATETIME 			NULL,
+    inactive_at 			DATETIME 			NULL,
+    CONSTRAINT fk_idclasificacion_tac FOREIGN KEY (idclasificacion) REFERENCES clasificaciones (idclasificacion),
+    CONSTRAINT uk_tipoactivo UNIQUE (idclasificacion, tipoactivo) --  Un tipo puede estar en varios tipos, más no repetir en esa clasificación
+)ENGINE = INNODB;
+
+-- Activos del tipo INFORMÁTICA
+INSERT INTO tiposactivo (idclasificacion, tipoactivo) VALUES
+	(1, 'Computadoras AIO'),
+    (1, 'Impresoras de inyección'),
+    (1, 'Impresoras Láser'),
+    (1, 'Ticketeras'),
+    (1, 'Tabletas Android'),
+    (1, 'Tabletas digitalizadoras'),
+    (1, 'Impresora 3D'),
+    (1, 'Proyector multimedia');
+
+SELECT * FROM tiposactivo;
+
+-- Activos del tipo METALMECÁNICA
+INSERT INTO tiposactivo (idclasificacion, tipoactivo) VALUES
+	(2, 'Taladro alámbrico'),
+    (2, 'Taladro inalámbrico'),
+    (2, 'Amoladora'),
+    (2, 'Fresadora'),
+    (2, 'Torno');
+
+INSERT INTO tiposactivo (idclasificacion, tipoactivo) VALUES
+	(3, 'Taladro alámbrico'),
+    (3, 'Taladro inalámbrico'),
+    (3, 'Logo'),
+    (3, 'PLC'),
+    (3, 'Variador de frecuencia');
+
+CREATE TABLE marcas
+(
+	idmarca 				INT AUTO_INCREMENT PRIMARY KEY,
+    idtipo 					INT  				NOT NULL,
+    marca 					VARCHAR(100)		NOT NULL,
+	create_at 				DATETIME 			NOT NULL DEFAULT NOW(),
+    update_at 				DATETIME 			NULL,
+    inactive_at 			DATETIME 			NULL,
+    CONSTRAINT fk_tipo_mar FOREIGN KEY (idtipo) REFERENCES tiposactivo (idtipo),
+    CONSTRAINT uk_marca_mar UNIQUE (idtipo, marca) -- Se puede registrar más de una vez una marca, siempre que no repita el tipo
+)ENGINE = INNODB;
 
 
+-- 1 Computadoras AIO
+INSERT INTO marcas (idtipo, marca) VALUES
+	(1, 'Lenovo'),
+    (1, 'HP'),
+	(1, 'Dell');
+
+-- 2 Impresoras de inyección
+INSERT INTO marcas (idtipo, marca) VALUES
+	(2, 'Epson'),
+    (2, 'HP'),
+    (2, 'Canon'),
+    (2, 'Brother');
+
+-- 3 Impresoras láser
+INSERT INTO marcas (idtipo, marca) VALUES
+	(3, 'Epson'),
+    (3, 'HP'),
+    (3, 'Xerox');
+
+-- 4 Ticketeras
+INSERT INTO marcas (idtipo, marca) VALUES
+	(4, 'Epson'),
+    (4, 'HP');
+
+-- 5 Tablet Android
+INSERT INTO marcas (idtipo, marca) VALUES
+	(5, 'Huawei'),
+    (5, 'Samsung'),
+    (5, 'Lenovo');
+
+-- 6 Tabletas digitalizadoras
+INSERT INTO marcas (idtipo, marca) VALUES
+	(6, 'Wacom');
+
+-- 7 Impresoras 3D
+INSERT INTO marcas (idtipo, marca) VALUES
+	(7, '3DLAC'),
+    (7, 'Astroprint'),
+    (7, 'Creality');
+
+-- 8 Proyector multimedia
+INSERT INTO marcas (idtipo, marca) VALUES
+	(8, 'Canon'),
+    (8, 'Sony'),
+    (8, 'Epson');
+
+-- 9 Talado alámbrico
+INSERT INTO marcas (idtipo, marca) VALUES
+	(9, 'Bosch'),
+    (9, 'Stanley'),
+    (9, 'Bauker');
+
+-- 10 Talado inalámbrico
+INSERT INTO marcas (idtipo, marca) VALUES
+	(10, 'Bosch'),
+    (10, 'Stanley'),
+    (10, 'Bauker');
+
+SELECT * FROM tiposactivo;
+SELECT * FROM marcas;
