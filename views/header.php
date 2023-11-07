@@ -118,43 +118,43 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../guias" class="nav-link">
+                <a href="../guias" class="nav-link" id="sblnk-guiaremision">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Guía remisión</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../asignacion" class="nav-link">
+                <a href="../asignacion" class="nav-link" id="sblnk-asignacion">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Asignación</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../programacion" class="nav-link">
+                <a href="../programacion" class="nav-link" id="sblnk-programacion">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Programación tareas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../mantenimientos" class="nav-link">
+                <a href="../mantenimientos" class="nav-link" id="sblnk-mantenimientos">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mantenimientos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../ia" class="nav-link">
+                <a href="../ia" class="nav-link" id="sblnk-asistenteia">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Asistente IA</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../locaciones" class="nav-link">
+                <a href="../locaciones" class="nav-link" id="sblnk-locaciones">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Cambio locaciones</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../baja" class="nav-link">
+                <a href="../baja" class="nav-link" id="sblnk-baja">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Bienes de baja</p>
                 </a>

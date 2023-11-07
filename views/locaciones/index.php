@@ -42,7 +42,10 @@
 <?php include_once '../footer.php'; ?>
 
 <!-- Falta invocar mi propio JS -->
-<!-- <script></script> -->
+<script>
+  document.querySelector("#sblnk-locaciones").classList.add("active", "bg-primary");
+</script>
+
 
 <!-- Fin del HTML -->
 <body>
